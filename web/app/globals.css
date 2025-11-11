@@ -1,0 +1,159 @@
+:root {
+  --bg: #0b1020;
+  --text: #f8fafc;
+  --muted: #c6d3f0;
+  --primary: #6ee7b7;
+  --accent: #60a5fa;
+  --brand: #ffb703;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
+               Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 600px at 80% -10%, #1a2447 0%, #0b1020 45%),
+              radial-gradient(900px 500px at -20% 20%, #112142 0%, #0b1020 55%),
+              #0b1020;
+  color: var(--text);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text);
+}
+.logo img { width: 36px; height: 36px; }
+.logo span { font-weight: 700; letter-spacing: 0.2px; }
+
+.cta {
+  background: linear-gradient(135deg, var(--brand), var(--primary));
+  color: #1a1a1a;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.cta:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.25); }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: center;
+  padding: 48px 0 32px;
+}
+@media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
+
+.heroTitle {
+  font-size: clamp(28px, 6vw, 48px);
+  line-height: 1.08;
+  margin: 0 0 12px;
+}
+.heroSubtitle {
+  color: var(--muted);
+  font-size: clamp(15px, 2.5vw, 18px);
+  margin: 0 0 20px;
+}
+
+.panel {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.panel::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: radial-gradient(650px 200px at 20% -10%, rgba(255,255,255,.18), transparent 60%);
+  pointer-events: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+
+.card {
+  background: #0d1328;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25) inset;
+}
+.card img { width: 60px; height: 60px; border-radius: 8px; }
+.card strong { display: block; margin-bottom: 4px; }
+.card span { color: var(--muted); font-size: 14px; }
+
+.scene {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: center;
+  margin: 56px 0;
+}
+@media (max-width: 900px) { .scene { grid-template-columns: 1fr; } }
+
+.sceneTitle { font-size: 28px; margin: 0 0 10px; }
+.sceneText { color: var(--muted); margin: 0; }
+
+.sideBySide {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch;
+}
+.bad { background: #2a1620; border: 1px solid #8b2a50; border-radius: 12px; padding: 14px; }
+.good { background: #10261d; border: 1px solid #2c7a59; border-radius: 12px; padding: 14px; }
+.bad h4, .good h4 { margin: 0 0 8px; }
+
+.footer {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; margin: 56px 0 24px;
+}
+
+.fadeIn {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fadeInUp .7s ease forwards;
+}
+.fadeIn.delay1 { animation-delay: .1s; }
+.fadeIn.delay2 { animation-delay: .2s; }
+.fadeIn.delay3 { animation-delay: .3s; }
+
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.voiceBar {
+  display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 999px; padding: 8px 12px;
+}
+.voiceDot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 18px var(--brand); }
+
+.buttonSecondary {
+  background: transparent; color: var(--text); border: 1px solid rgba(255,255,255,.2); border-radius: 999px; padding: 10px 16px; font-weight: 600; cursor: pointer;
+}
+
+.brandTagline { color: var(--muted); font-size: 14px; margin-top: 6px; }
